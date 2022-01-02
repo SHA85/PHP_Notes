@@ -1,0 +1,40 @@
+Projects Table
+╔═════╦═════════════╦══════════╗
+║ id  ║ Project Name║ user_ids ║
+╠═════╬═════════════╬══════════╣
+║ 1   ║ PIB         ║ 1,2,4    ║       
+║ 2   ║ CK          ║ 4,5      ║
+╚═════╩═════════════╩══════════╝
+
+Users Table
+╔═════╦═════════════╗
+║ id  ║    name     ║
+╠═════╬═════════════╣
+║ 1   ║ Yamin       ║
+║ 2   ║ Hein        ║
+║ 3   ║ Zaw         ║
+║ 4   ║ Yu          ║
+║ 5   ║ Khin        ║
+║ 6   ║ Lay         ║
+╚═════╩═════════════╝
+
+CREATE TABLE projects (`id` int, `project_name` varchar(10), `user_ids` varchar(7));
+INSERT INTO projects (`id`, `project_name`, `user_ids`) 
+        VALUES 
+            (1, 'CK', '1,2,3,4'),
+            (2, 'POS', '4,5');
+
+CREATE TABLE users (`id` int, `name` varchar(10));
+INSERT INTO users (`id`, `name`)
+            VALUES
+                (1, 'Yamin'),
+                (2, 'Hein'),
+                (3, 'Zaw'),
+                (4, 'Yu'),
+                (5, 'Khin'),
+                (6, 'Lay');
+
+SELECT  projects.id, project_name, GROUP_CONCAT(users.name ORDER BY users.id) DepartmentName
+FROM    projects
+INNER JOIN users ON FIND_IN_SET(users.id, projects.user_ids) > 0
+GROUP   BY projects.id
