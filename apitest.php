@@ -1,7 +1,7 @@
 <?php
 $curl = curl_init();
 $params = [
-    "grant_type" => 'client_credentials', "client_id"  => 'CCB1-PS-20-00000313', 'client_secret'=>'OOvciD+vIt4eoDEEG8T+OQ=='
+    "grant_type" => 'client_credentials', "client_id"  => 'CCB1-PS-20-00000333', 'client_secret'=>'OOvciD+vIt4eoDEEG8T+OQ##'
  ];
 
 curl_setopt_array($curl, array(
