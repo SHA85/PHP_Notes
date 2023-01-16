@@ -14,3 +14,5 @@ function CountStartZero($str) {
 	    else return $count;
 	}
 }
+
+// Other Ref :: https://www.geeksforgeeks.org/how-to-remove-all-leading-zeros-in-a-string-in-php/
